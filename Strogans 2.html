@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strogans Lawn Care & Odd Jobs</title>
+
+  <style>
+    :root {
+      --green: #1f7a1f;
+      --dark-green: #0f3f18;
+      --black: #151515;
+      --light: #f5f8f3;
+      --gray: #666;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--dark-green), var(--green));
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 80px 8%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      background: white;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--black);
+      display: block;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 15px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--green);
+      border: 2px solid var(--green);
+    }
+
+    .hero-card {
+      background: var(--light);
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 2px solid #e5eee2;
+    }
+
+    .badge {
+      background: var(--green);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      display: inline-block;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      color: var(--dark-green);
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    }
+
+    .service-card .icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      color: var(--green);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .why {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    .why .section-title,
+    .why .section-subtitle {
+      color: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .why-box {
+      background: rgba(255,255,255,0.1);
+      padding: 28px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .photo-box {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .photo-placeholder {
+      height: 260px;
+      background: linear-gradient(135deg, #dfeadb, #f8faf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .photo-box h3 {
+      padding: 18px;
+      color: var(--dark-green);
+    }
+
+    .booking {
+      background: white;
+    }
+
+    form {
+      max-width: 800px;
+      margin: auto;
+      background: var(--light);
+      padding: 35px;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+      color: var(--dark-green);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #cfd8cc;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 15px 28px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background: var(--black);
+      color: white;
+      text-align: center;
+      padding: 35px 8%;
+    }
+
+    footer a {
+      color: #8ee28e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .services,
+      .why-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">STROGANS LAWN CARE</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Before & After</a>
+      <a href="#book">Book Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Lawn Care <span>& Odd Jobs</span></h1>
+      <p>
+        Reliable help for your yard and home. River Heights teens ready for lawn cutting,
+        yard work, shovelling, and odd jobs — get your to-do list done.
+      </p>
+      <a href="#book" class="button">Book Us</a>
+      <a href="tel:4318778148" class="button secondary">Call or Text</a>
+    </div>
+
+    <div class="hero-card">
+      <div class="badge">Reasonable Rates</div>
+      <h2>4 Season Service</h2>
+      <p>
+        Spring, summer, fall, and winter help available. Friendly, trustworthy,
+        and ready to work.
+      </p>
+      <p><strong>Finn & Jack</strong></p>
+      <p><strong>431-877-8148</strong></p>
+      <p>Serving River Heights</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">What We Offer</h2>
+    <p class="section-subtitle">
+      From regular yard maintenance to seasonal jobs, we can help keep your property looking great.
+    </p>
+
+    <div class="services">
+      <div class="service-card">
+        <div class="icon">🌱</div>
+        <h3>Lawn Cutting</h3>
+        <p>Clean, reliable lawn cutting for homes in River Heights.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🍃</div>
+        <h3>Yard Work</h3>
+        <p>Raking, cleanup, weeding, moving items, and general outdoor help.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">❄️</div>
+        <h3>Shovelling</h3>
+        <p>Winter snow shovelling for walkways, steps, and driveways.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <h2 class="section-title">Why Book With Us?</h2>
+    <p class="section-subtitle">
+      Friendly local help with a focus on reliable service and quality work.
+    </p>
+
+    <div class="why-grid">
+      <div class="why-box">
+        <h3>Reliable Service</h3>
+        <p>We show up ready to help and get the job done.</p>
+      </div>
+
+      <div class="why-box">
+        <h3>Reasonable Rates</h3>
+        <p>Affordable help for families, neighbours, and local homeowners.</p>
+      </div>
+
+      <div class="why-box">
+        <h3>Friendly & Trustworthy</h3>
+        <p>Local River Heights teens offering respectful, hardworking service.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2 class="section-title">Before & After</h2>
+    <p class="section-subtitle">
+      Add photos here to show your work. Replace each placeholder with your own images.
+    </p>
+
+    <div class="gallery">
+      <div class="photo-box">
+        <div class="photo-placeholder">Add BEFORE Photo Here</div>
+        <h3>Before</h3>
+      </div>
+
+      <div class="photo-box">
+        <div class="photo-placeholder">Add AFTER Photo Here</div>
+        <h3>After</h3>
+      </div>
+
+      <div class="photo-box">
+        <div class="photo-placeholder">Add BEFORE Photo Here</div>
+        <h3>Before</h3>
+      </div>
+
+      <div class="photo-box">
+        <div class="photo-placeholder">Add AFTER Photo Here</div>
+        <h3>After</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="booking">
+    <h2 class="section-title">Book Us</h2>
+    <p class="section-subtitle">
+      Fill out the form below or call/text Finn & Jack at 431-877-8148.
+    </p>
+
+    <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="Name" placeholder="Your name" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="Phone" placeholder="Your phone number" required />
+
+      <label for="service">Service Needed</label>
+      <select id="service" name="Service" required>
+        <option value="">Choose a service</option>
+        <option>Lawn Cutting</option>
+        <option>Yard Work</option>
+        <option>Shovelling</option>
+        <option>Odd Jobs</option>
+        <option>Not Sure Yet</option>
+      </select>
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="Preferred Date" />
+
+      <label for="message">Tell Us What You Need</label>
+      <textarea id="message" name="Message" placeholder="Describe the job, location, and any details we should know."></textarea>
+
+      <button type="submit">Send Booking Request</button>
+    </form>
+  </section>
+
+  <footer id="contact">
+    <h2>Strogans Lawn Care & Odd Jobs</h2>
+    <p>Call or Text Finn & Jack: <strong>431-877-8148</strong></p>
+    <p>Serving River Heights</p>
+    <p>
+      Follow us on Instagram:
+      <a href="https://www.instagram.com/strogans_lawncare" target="_blank">
+        @strogans_lawncare
+      </a>
+    </p>
+  </footer>
+
+</body>
+</html>
