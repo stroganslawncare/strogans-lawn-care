@@ -404,31 +404,41 @@
       Fill out the form below or call/text Finn & Jack at 431-877-8148.
     </p>
 
-    <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="Name" placeholder="Your name" required />
+  <form action="https://formsubmit.co/finnley.strongman@icloud.com" method="POST">
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="Phone" placeholder="Your phone number" required />
+  <!-- Hidden settings -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="New Booking Request - Strogans Lawn Care">
+  <input type="hidden" name="_template" value="table">
 
-      <label for="service">Service Needed</label>
-      <select id="service" name="Service" required>
-        <option value="">Choose a service</option>
-        <option>Lawn Cutting</option>
-        <option>Yard Work</option>
-        <option>Shovelling</option>
-        <option>Odd Jobs</option>
-        <option>Not Sure Yet</option>
-      </select>
+  <label>Your Name</label>
+  <input type="text" name="Name" placeholder="Enter your name" required>
 
-      <label for="date">Preferred Date</label>
-      <input type="date" id="date" name="Preferred Date" />
+  <label>Phone Number</label>
+  <input type="tel" name="Phone" placeholder="Enter your phone number" required>
 
-      <label for="message">Tell Us What You Need</label>
-      <textarea id="message" name="Message" placeholder="Describe the job, location, and any details we should know."></textarea>
+  <label>Email (optional)</label>
+  <input type="email" name="Email" placeholder="Enter your email">
 
-      <button type="submit">Send Booking Request</button>
-    </form>
+  <label>Service Needed</label>
+  <select name="Service" required>
+    <option value="">Select a service</option>
+    <option>Lawn Cutting</option>
+    <option>Yard Work</option>
+    <option>Shovelling</option>
+    <option>Odd Jobs</option>
+  </select>
+
+  <label>Preferred Date</label>
+  <input type="date" name="Date">
+
+  <label>Job Details</label>
+  <textarea name="Message" placeholder="Describe what you need done..."></textarea>
+
+  <button type="submit">Send Booking Request</button>
+
+</form>
+
   </section>
 
   <footer id="contact">
